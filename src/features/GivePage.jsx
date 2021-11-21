@@ -46,7 +46,7 @@ export const GivePage = ({cause, name, setName}) => {
   };
 
   return (
-    <Box sx={{maxWidth: "375px"}}>
+    <Box sx={{maxWidth: "600px", margin: "auto"}}>
       <Typography
         variant="h4"
         align="center"

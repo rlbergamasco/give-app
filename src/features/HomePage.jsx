@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography, Button, Container, Paper, Box, Grid } from "@mui/material";
-import asset1 from "../asset1.png"
+import {Typography, Button, Container, Paper, Box, Grid} from "@mui/material";
+import asset1 from "../asset1.png";
 import pic1 from "../headshot/1.jpg";
 import pic2 from "../headshot/2.jpg";
 import pic3 from "../headshot/3.jpg";
@@ -15,24 +15,24 @@ export const HomePage = () => {
     <React.Fragment>
       <div
         style={{
-			paddingTop: "50px",
-            paddingBottom: "50px",
-            paddingLeft: "50px",
-            paddingRight: "50px",
-		  display: "flex",
-		  flexWrap: "wrap",
-		  flexDirection: "row",
-		  justifyContent: "space-between",
+          paddingTop: "50px",
+          paddingBottom: "50px",
+          paddingLeft: "50px",
+          paddingRight: "50px",
+          display: "flex",
+          flexWrap: "wrap",
+          flexDirection: "row",
+          justifyContent: "space-between",
           backgroundSize: "cover",
           backgroundPosition: "center",
-		  backgroundColor: "#6cbad9",
+          backgroundColor: "#6cbad9",
           minHeight: "18em",
         }}
       >
         <div
           style={{
             display: "flex",
-			flexBasis: "40em",
+            flexBasis: "40em",
             gap: "20px",
             flexDirection: "column",
             alignItems: "flex-start",
@@ -47,19 +47,29 @@ export const HomePage = () => {
             dolorem porro labore nam, et minima saepe quas, error voluptatibus
             dolores sint?
           </Typography>
-          <Button variant="contained" style={{ backgroundColor: "#f26969" }}>
+          <Button
+            href="/give"
+            variant="contained"
+            style={{backgroundColor: "#f26969"}}
+          >
             Donate
           </Button>
         </div>
-		<div style={{ flexBasis: "20em",
-					  verticalAlign: "middle",
-					  textAlign: "center", 
-				   }}>
-			<img style={{ 
-				width: "70%",
-				margin: "auto",
-			}} src={asset1} />
-		</div>
+        <div
+          style={{
+            flexBasis: "20em",
+            verticalAlign: "middle",
+            textAlign: "center",
+          }}
+        >
+          <img
+            style={{
+              width: "70%",
+              margin: "auto",
+            }}
+            src={asset1}
+          />
+        </div>
       </div>
 
       <div
@@ -114,8 +124,8 @@ export const HomePage = () => {
           style={{
             display: "flex",
             flexDirection: "row",
-			flexWrap: "wrap",
-			gap: "3em",
+            flexWrap: "wrap",
+            gap: "3em",
             justifyContent: "space-between",
           }}
         >
@@ -124,11 +134,11 @@ export const HomePage = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-				flexBasis: "20em",
+                flexBasis: "20em",
                 alignItems: "center",
               }}
             >
-              <img style={{ width: "100%", borderRadius: "0" }} src={pic} />
+              <img style={{width: "100%", borderRadius: "0"}} src={pic} />
               <p>Test</p>
             </div>
           ))}
