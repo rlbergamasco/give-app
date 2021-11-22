@@ -143,27 +143,6 @@ export const HomePage = () => {
             </div>
           ))}
         </div>
-        {/* <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          {picArray2.map((pic, index) => (
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                width: "25%",
-              }}
-            >
-              <img style={{ width: "100%", borderRadius: "0" }} src={pic} />
-              <p>Test</p>
-            </div>
-          ))}
-        </div> */}
       </div>
     </React.Fragment>
   );
