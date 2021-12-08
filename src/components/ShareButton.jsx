@@ -1,8 +1,8 @@
 import React from "react";
-import {Button} from "@mui/material";
+import { Button } from "@mui/material";
 
-export const ShareButton = ({cause, message}) => {
-  const url = "rileybergamasco.com/giveapp/give";
+export const ShareButton = ({ cause, message }) => {
+  const url = "/give";
 
   const handleClick = () => {
     if (navigator.share) {
