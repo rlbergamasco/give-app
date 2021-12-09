@@ -23,7 +23,6 @@ input {
 .amountContainer {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 8px;
 }
 
 .amountContainer input {
