@@ -1,15 +1,21 @@
+// possibly move phots to public
+
 import React, { useState } from "react";
-import { Typography, Box, Button } from "@mui/material";
+import { Typography, Box, Button, FormGroup, FormControlLabel, Checkbox } from "@mui/material";
 import { CheckoutButtons, ShareButton } from "components";
 import { red } from '@mui/material/colors';
 
 export const GivePage = ({ cause, name, setName }) => {
+  const defaultAmount = 3.16;
   const [phoneNumber, setPhoneNumber] = useState("");
   const [amount, setAmount] = useState("");
   const [checkout, setCheckout] = useState(false);
   const [displayNameErorr, setDisplayNameError] = useState(false);
   const [displayPhoneErorr, setDisplayPhoneError] = useState(false);
   const [displayAmountErorr, setDisplayAmountError] = useState(false);
+  const [addFees, setAddFees] = useState(true);
+  const possibleTotal = (amount ? amount * 1.03 + .49 : defaultAmount * 1.03 + .49).toFixed(2);
+  const total = !addFees ? amount ? amount : defaultAmount : possibleTotal;
 
   const handleInputPhone = (e) => {
     const formattedPhone = formatPhoneNumber(e.target.value);
@@ -72,8 +78,12 @@ export const GivePage = ({ cause, name, setName }) => {
     setCheckout(false);
   }
 
+  const handleCheck = () => {
+    setAddFees(!addFees);
+  }
+
   return (
-    <Box sx={{ maxWidth: "600px", margin: "auto" }}>
+    <Box sx={{ maxWidth: "600px", margin: "auto", display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Typography
         variant="h4"
         align="center"
@@ -89,58 +99,60 @@ export const GivePage = ({ cause, name, setName }) => {
         </Box>
         :
         <React.Fragment>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Box
-              component="form"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-              }}
-              noValidate
-              autoComplete="off"
-            >
-              <Typography>Enter your name</Typography>
-              <Box sx={{ mb: 1, "& > input": { p: 1 } }}>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="name"
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                />
-                {displayNameErorr ? <Typography color={red[600]} variant="body2">Please enter your name</Typography> : null}
-              </Box>
-              <Typography>Enter your phone number</Typography>
-              <Box sx={{ mb: 1, "& > input": { p: 1 } }}>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="(000) 000-0000"
-                  onChange={(e) => handleInputPhone(e)}
-                  value={phoneNumber}
-                />
-                {displayPhoneErorr ? <Typography color={red[600]} variant="body2">Please enter your phone number</Typography> : null}
-              </Box>
-              <Typography>Amount to give</Typography>
-              <Box sx={{ mb: 1 }}>
-                <div className="amountContainer">
-                  <span className="dollar">
-                    <Typography>$</Typography>
-                  </span>
-                  <input
-                    id="amount"
-                    name="amount"
-                    type="text"
-                    placeholder="1.00"
-                    onChange={(e) => handleInputAmount(e)}
-                    value={amount}
-                  />
-                </div>
-                {displayAmountErorr ? <Typography color={red[600]} variant="body2">Your amount must be at least $1</Typography> : null}
-              </Box>
+          <Box
+            component="form"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <Typography>Enter your name</Typography>
+            <Box sx={{ mb: 1, "& > input": { p: 1 } }}>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="name"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+              />
+              {displayNameErorr ? <Typography color={red[600]} variant="body2">Please enter your name</Typography> : null}
             </Box>
+            <Typography>Enter your phone number</Typography>
+            <Box sx={{ mb: 1, "& > input": { p: 1 } }}>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(000) 000-0000"
+                onChange={(e) => handleInputPhone(e)}
+                value={phoneNumber}
+              />
+              {displayPhoneErorr ? <Typography color={red[600]} variant="body2">Please enter your phone number</Typography> : null}
+            </Box>
+            <Typography>Amount to give</Typography>
+            <Box sx={{ mb: 1 }}>
+              <div className="amountContainer">
+                <span className="dollar">
+                  <Typography>$</Typography>
+                </span>
+                <input
+                  id="amount"
+                  name="amount"
+                  type="text"
+                  placeholder={defaultAmount}
+                  onChange={(e) => handleInputAmount(e)}
+                  value={amount}
+                />
+              </div>
+              {displayAmountErorr ? <Typography color={red[600]} variant="body2">Your amount must be at least $1</Typography> : null}
+            </Box>
+          </Box>
+          <Box sx={{ maxWidth: '227.28px', display: 'flex' }}>
+            <Checkbox checked={addFees} onClick={handleCheck} />
+            <Typography variant="body2">Would you like to include the transaction fee of 3% + $0.49 for a total of ${possibleTotal} as part of your donation?</Typography>
           </Box>
           <Box
             sx={{
@@ -150,7 +162,7 @@ export const GivePage = ({ cause, name, setName }) => {
               my: 1,
             }}
           >
-            <Button variant="contained" onClick={handleClick}>Donate</Button>
+            <Button variant="contained" onClick={handleClick}>Donate ${total}</Button>
           </Box>
           <Typography align="center" sx={{ mt: 2 }}>Can't donate today?</Typography>
           <Box sx={{ display: "flex", justifyContent: "center", m: 1 }}>
