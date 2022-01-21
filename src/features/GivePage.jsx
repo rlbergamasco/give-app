@@ -66,7 +66,7 @@ export const GivePage = ({ cause, name, setName }) => {
     if (phoneNumber.length !== 14) {
       setDisplayPhoneError(true);
     }
-    if (!(amount === "" || amount >= 1)) {
+    if (total < 1) {
       setDisplayAmountError(true);
     }
     if (phoneNumber.length === 14 && name.length > 1 && (amount === "" || amount >= 1)) {
@@ -94,7 +94,7 @@ export const GivePage = ({ cause, name, setName }) => {
       </Typography>
       {checkout ?
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <CheckoutButtons amount={amount === "" ? "1.00" : amount} />
+          <CheckoutButtons amount={total} />
           <Button variant="contained" onClick={handleCancel}>Back</Button>
         </Box>
         :
@@ -147,7 +147,7 @@ export const GivePage = ({ cause, name, setName }) => {
                   value={amount}
                 />
               </div>
-              {displayAmountErorr ? <Typography color={red[600]} variant="body2">Your amount must be at least $1</Typography> : null}
+              {displayAmountErorr ? <Typography color={red[600]} variant="body2">Please donate at least $1</Typography> : null}
             </Box>
           </Box>
           <Box sx={{ maxWidth: '227.28px', display: 'flex' }}>
