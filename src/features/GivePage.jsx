@@ -1,7 +1,7 @@
 // possibly move phots to public
 
 import React, { useState } from "react";
-import { Typography, Box, Button, FormGroup, FormControlLabel, Checkbox } from "@mui/material";
+import { Typography, Box, Button, Checkbox } from "@mui/material";
 import { CheckoutButtons, ShareButton } from "components";
 import { red } from '@mui/material/colors';
 
