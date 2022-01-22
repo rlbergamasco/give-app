@@ -3,7 +3,6 @@ import { AppBar, Grid, Link, Typography, IconButton, Drawer, Box, List, ListItem
 import { makeStyles } from "@mui/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from '@mui/icons-material/Close';
-import { typography } from "@mui/system";
 
 const useStyles = makeStyles((theme) => ({
   link: {

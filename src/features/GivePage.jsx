@@ -1,5 +1,3 @@
-// possibly move phots to public
-
 import React, { useState } from "react";
 import { Typography, Box, Button, Checkbox } from "@mui/material";
 import { CheckoutButtons, ShareButton } from "components";
