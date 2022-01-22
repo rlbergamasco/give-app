@@ -168,7 +168,7 @@ export const GivePage = ({ cause, name, setName }) => {
           <Box sx={{ display: "flex", justifyContent: "center", m: 1 }}>
             <ShareButton
               cause={cause}
-              message={`Hi this is ${name}! Can you help me support ${cause} by donating $1?`}
+              message={`Hi have you heard about ${cause}? Can you help me support them by donating a few dollars?`}
             />
           </Box>
         </React.Fragment>

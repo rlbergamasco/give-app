@@ -1,9 +1,9 @@
-import {Typography, Box} from "@mui/material";
-import {ShareButton} from "components";
+import { Typography, Box } from "@mui/material";
+import { ShareButton } from "components";
 
-export const SharePage = ({cause, name}) => {
+export const SharePage = ({ cause, name }) => {
   return (
-    <Box sx={{maxWidth: "800px", margin: "auto"}}>
+    <Box sx={{ maxWidth: "800px", margin: "auto" }}>
       <Typography variant="h4" align="center">
         {`Thank you for donating to ${cause}!`}
       </Typography>
@@ -13,10 +13,10 @@ export const SharePage = ({cause, name}) => {
         accusamus eius culpa vitae similique distinctio officia cumque dolores
         libero, placeat, dignissimos laudantium ad.
       </Typography>
-      <Box sx={{display: "flex", justifyContent: "center", m: 2}}>
+      <Box sx={{ display: "flex", justifyContent: "center", m: 2 }}>
         <ShareButton
           cause={cause}
-          message={`Hi this is ${name}! I just made a donation to help ${cause}. Can you join me by donating $1?`}
+          message={`Hi this is ${name}! I just made a donation to help ${cause}. Can you join me by donating a few dollars?`}
         />
       </Box>
     </Box>
