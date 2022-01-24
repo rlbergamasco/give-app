@@ -28,9 +28,9 @@ export const Nav = () => {
           <Link
             href={`/`}
             color="textPrimary"
-            sx={{ textDecoration: "none", fontWeight: 500 }}
+            sx={{ textDecoration: "none" }}
           >
-            GiveApp
+            The Giving Project
           </Link>
         </Grid>
         <Grid item sx={{ display: "flex", flexGrow: 1 }} />

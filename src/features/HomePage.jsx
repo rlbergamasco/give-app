@@ -82,7 +82,7 @@ export const HomePage = () => {
         }}
       >
         <Typography variant="h4" align="center">
-          Give-it Project
+          The Giving Project
         </Typography>
         <Typography variant="body2" align="center">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam amet
