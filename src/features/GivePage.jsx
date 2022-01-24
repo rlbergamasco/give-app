@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Typography, Box, Button, Checkbox } from "@mui/material";
-import { CheckoutButtons, ShareButton } from "components";
+import { CheckoutButtons, NativeShare, NonNativeShare } from "components";
 import { red } from '@mui/material/colors';
 
 export const GivePage = ({ cause, name, setName }) => {
@@ -14,6 +14,7 @@ export const GivePage = ({ cause, name, setName }) => {
   const [addFees, setAddFees] = useState(true);
   const possibleTotal = (amount ? amount * 1.03 + .49 : defaultAmount * 1.03 + .49).toFixed(2);
   const total = !addFees ? amount ? amount : defaultAmount : possibleTotal;
+  const message = `Hi have you heard about ${cause}? Can you help me support them by donating a few dollars?`;
 
   const handleInputPhone = (e) => {
     const formattedPhone = formatPhoneNumber(e.target.value);
@@ -162,12 +163,16 @@ export const GivePage = ({ cause, name, setName }) => {
           >
             <Button variant="contained" onClick={handleClick}>Donate ${total}</Button>
           </Box>
-          <Typography align="center" sx={{ mt: 2 }}>Can't donate today?</Typography>
+          <Typography align="center" sx={{ mt: 2 }}>
+            {navigator.share ? "Can't donate today?" : "Can't donate today? Invite friends to donate!"}
+          </Typography>
           <Box sx={{ display: "flex", justifyContent: "center", m: 1 }}>
-            <ShareButton
-              cause={cause}
-              message={`Hi have you heard about ${cause}? Can you help me support them by donating a few dollars?`}
-            />
+            {navigator.share ?
+              <NativeShare
+                cause={cause}
+                message={message}
+              />
+              : <NonNativeShare cause={cause} message={message} />}
           </Box>
         </React.Fragment>
       }

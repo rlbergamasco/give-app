@@ -1,7 +1,8 @@
 import { Typography, Box } from "@mui/material";
-import { ShareButton } from "components";
+import { NativeShare, NonNativeShare } from "components";
 
 export const SharePage = ({ cause, name }) => {
+  const message = `Hi this is ${name}! I just made a donation to help ${cause}. Can you join me by donating a few dollars?`;
   return (
     <Box sx={{ maxWidth: "800px", margin: "auto" }}>
       <Typography variant="h4" align="center">
@@ -14,10 +15,19 @@ export const SharePage = ({ cause, name }) => {
         libero, placeat, dignissimos laudantium ad.
       </Typography>
       <Box sx={{ display: "flex", justifyContent: "center", m: 2 }}>
-        <ShareButton
-          cause={cause}
-          message={`Hi this is ${name}! I just made a donation to help ${cause}. Can you join me by donating a few dollars?`}
-        />
+        {navigator.share ?
+          <NativeShare
+            cause={cause}
+            message={message}
+          />
+          :
+          <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            <Typography variant="h5" sx={{ mb: 1 }}>
+              Invite friends to donate!
+            </Typography>
+            <NonNativeShare cause={cause} message={message} />
+          </Box>
+        }
       </Box>
     </Box>
   );
