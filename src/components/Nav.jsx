@@ -61,6 +61,8 @@ const NavMobile = ({ tabs }) => {
   return (
     <React.Fragment>
       <Drawer
+        // nonnative share buttons z-index 94034
+        sx={{ zIndex: 100000 }}
         anchor="right"
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
